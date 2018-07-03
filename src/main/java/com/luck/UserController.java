@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by Hua wb on 2018/6/14.
  */
@@ -16,6 +18,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     @Autowired
     private UserManager userManager;
+
+    @RequestMapping("/")
+    public ModelAndView getUsers(){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Users> userList = userManager.getUserList();
+        modelAndView.setViewName("usersInfo");
+        modelAndView.addObject("users", userList);
+        return modelAndView;
+    }
 
     @RequestMapping("/{id}")
     public ModelAndView getUser(@PathVariable("id") int id){
@@ -31,5 +42,11 @@ public class UserController {
         userManager.insert(users);
         modelAndView.setViewName("index");
         return modelAndView;
+    }
+
+    @RequestMapping("/del/{id}")
+    public String delUser(@PathVariable("id") int id){
+        userManager.delUser(id);
+        return "redirect:/user/";
     }
 }

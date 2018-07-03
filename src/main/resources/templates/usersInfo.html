@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息：</title>
+</head>
+<body>
+<table border="1">
+<#list users as player>
+        <tr>
+            <td name="id">${player.uid}</td>
+            <td>${player.name}</td>
+            <td><a href="/user/del/${player.uid}">删除</a></td>
+        </tr>
+</#list>
+</table>
+</body>
+</html>

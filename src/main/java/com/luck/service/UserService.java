@@ -7,6 +7,8 @@ import com.luck.pojo.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Hua wb on 2018/3/14.
  */
@@ -22,5 +24,15 @@ public class UserService implements UserManager {
     @Override
     public Users getUsers(int id) {
         return usersMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int delUser(int id) {
+        return usersMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Users> getUserList() {
+        return usersMapper.getUsers();
     }
 }

@@ -68,4 +68,11 @@
       age = #{age,jdbcType=INTEGER}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+
+  <select id="getUsers" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from users
+  </select>
+
 </mapper>
