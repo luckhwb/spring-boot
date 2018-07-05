@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript">
+    function save()
+    {
+        var url = 'http://localhost:8080/user/testAjax';
+        $.ajax(url, {
+            dataType: 'text',
+            crossDomain: true,
+            success: function(data) {
+                document.getElementById("myDiv").innerHTML=data;
+            },
+            error : function() {
+                alert('error...');
+            }
+        })}
+</script>
+<body>
+
+<div id="myDiv"><h2>使用 </h2></div>
+<button type="button" onclick="save()">修改内容</button>
+
+</body>
+</html>
