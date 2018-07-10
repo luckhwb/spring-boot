@@ -14,5 +14,5 @@ public interface UserManager {
 
     int delUser(int id);
 
-    List<Users> getUserList();
+    List<Users> getUserList(Users users);
 }

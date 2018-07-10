@@ -32,7 +32,7 @@ public class UserService implements UserManager {
     }
 
     @Override
-    public List<Users> getUserList() {
-        return usersMapper.getUsers();
+    public List<Users> getUserList(Users users) {
+        return usersMapper.getUsers(users);
     }
 }

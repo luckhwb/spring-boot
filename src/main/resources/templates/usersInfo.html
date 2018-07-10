@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <title>所有用户信息：</title>
 </head>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript">
+    function save(id)
+    {
+        var url = 'http://localhost:8080/user/del/';
+        $.ajax(url, {
+            data:{"id":id},
+            dataType: 'text',
+            crossDomain: true,
+            success: function() {
+                window.location.reload();
+            },
+            error : function() {
+                alert('error...');
+            }
+        })}
+</script>
 <body>
+<form id="addBlog" action="/user/" method="post">
+    请输入你要查询的年龄:<input type="text" name="age"/>
+    <input type="submit" value="搜索">
+</form>
 <table border="1">
+    <tr>
+        <td name="id">Id</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
 <#list users as player>
         <tr>
             <td name="id">${player.uid}</td>
             <td>${player.name}</td>
-            <td><a href="/user/del/${player.uid}">删除</a></td>
+            <td>${player.age}</td>
+            <td><button type="button" onclick="save(${player.uid})">删除</button></td>
         </tr>
 </#list>
 </table>

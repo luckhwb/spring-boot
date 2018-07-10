@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.luck.api.UserManager;
 import com.luck.pojo.Users;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,9 +33,10 @@ public class UserController {
     private UserManager userManager;
 
     @RequestMapping("/")
-    public ModelAndView getUsers(){
+    public ModelAndView getUsers(Users users){
+        System.out.println(users);
         ModelAndView modelAndView = new ModelAndView();
-        List<Users> userList = userManager.getUserList();
+        List<Users> userList = userManager.getUserList(users);
         modelAndView.setViewName("usersInfo");
         modelAndView.addObject("users", userList);
         return modelAndView;
@@ -68,15 +70,17 @@ public class UserController {
     }
 
     @RequestMapping("/add")
-    public ModelAndView addUser(Users users, ModelAndView modelAndView){
+    public String addUser(Users users){
         userManager.insert(users);
-        modelAndView.setViewName("index");
-        return modelAndView;
+        return "redirect:/index";
     }
 
-    @RequestMapping("/del/{id}")
-    public String delUser(@PathVariable("id") int id){
-        userManager.delUser(id);
-        return "redirect:/user/";
+    @RequestMapping("/del/")
+    @ResponseBody
+    public String delUser(HttpServletRequest request){
+        String id = request.getParameter("id");
+        userManager.delUser(Integer.parseInt(id));
+        return "success";
+        //return "redirect:/user/";
     }
 }
