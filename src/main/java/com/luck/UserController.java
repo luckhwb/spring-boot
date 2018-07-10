@@ -34,7 +34,6 @@ public class UserController {
 
     @RequestMapping("/")
     public ModelAndView getUsers(Users users){
-        System.out.println(users);
         ModelAndView modelAndView = new ModelAndView();
         List<Users> userList = userManager.getUserList(users);
         modelAndView.setViewName("usersInfo");
@@ -52,13 +51,8 @@ public class UserController {
     @RequestMapping("/testAjax")
     @ResponseBody  //必须要有
     public String testAjax(){
-        System.out.println("hahahha");
         Users users = userManager.getUsers(1);
-        String s = JSON.toJSONString(users);
-        System.out.println("s:"+s);
-        JSONObject jsonObject = JSONObject.parseObject(s);
-        System.out.println("jsonObject"+jsonObject);
-        return s;
+        return JSON.toJSONString(users);
     }
     @RequestMapping("/{id}")
     public ModelAndView getUser(@PathVariable("id") int id){
