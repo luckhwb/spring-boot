@@ -11,9 +11,14 @@ spring:
     template-loader-path: classpath:/templates
     prefix:
     suffix: .html
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
   # 数据源
   datasource:
-    url: jdbc:mysql://localhost:3306/luck
+    url: jdbc:mysql://localhost:3306/luck?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -24,3 +29,9 @@ spring:
 mybatis:
   mapper-locations: classpath*:sqlmap/*Mapper.xml
   type-aliases-package: com.luck.pojo
+server:
+  tomcat:
+    uri-encoding: UTF-8
+logging:
+  level:
+    com.luck.dao: debug

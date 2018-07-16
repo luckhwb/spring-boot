@@ -16,7 +16,7 @@ public class BlogController {
     @Autowired
     BlogManager blogManager;
 
-    @RequestMapping("/addBlogInfo")
+    @RequestMapping(value = "/addBlogInfo", produces = "text/html;charset=UTF-8")
     public String addBlogInfo(Blog blog){
         blogManager.addBlog(blog);
         // 重定向访问： localhost:8080/index
