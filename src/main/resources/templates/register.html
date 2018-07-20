@@ -4,11 +4,31 @@
     <meta charset="UTF-8" />
     <title></title>
 </head>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    div{
+        width: 50%;
+        height: 500px;
+        display: block;
+        margin: 0px auto;
+    }
+    form{
+        width: 50%;
+        height: 100px;
+        display: block;
+        margin: 200px auto;
+    }
+</style>
 <body>
-<form action="/user/add" method="post">
-    姓名:<input type="text" name="name" />
-    年龄:<input type="text" name="age" />
-    <input type="submit" value="注册">
-</form>
+<div>
+    <form action="/add" method="post">
+        姓名:<input type="text" name="name" /><br/><br/>
+        年龄:<input type="text" name="age" /><br/><br/>
+        <input type="submit" value="注册">
+    </form>
+</div>
 </body>
 </html>

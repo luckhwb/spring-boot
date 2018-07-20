@@ -20,6 +20,6 @@ public class BlogController {
     public String addBlogInfo(Blog blog){
         blogManager.addBlog(blog);
         // 重定向访问： localhost:8080/index
-        return "redirect:/index";
+        return "redirect:/bottom";
     }
 }

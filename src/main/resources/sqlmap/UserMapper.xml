@@ -88,4 +88,11 @@
     </where>
   </select>
 
+  <select id="checkUser" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM users
+    WHERE name = #{name} AND  age = #{age}
+  </select>
+
 </mapper>

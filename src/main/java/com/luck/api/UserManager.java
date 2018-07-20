@@ -15,4 +15,6 @@ public interface UserManager {
     int delUser(int id);
 
     List<Users> getUserList(Users users);
+
+    Users checkUser(String name, int age);
 }

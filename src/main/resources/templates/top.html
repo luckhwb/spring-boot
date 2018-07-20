@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>top</title>
+</head>
+<style type="text/css">
+    body{
+        margin: 0px;
+        padding: 0px;
+        background-color: black;
+    }
+    #top{
+        width: 100%;
+        height: 30px;
+        background-color: bisque;
+    }
+    #l_r{
+        width: 100px;
+        height: 30px;
+        right: 0px;
+        position: fixed;
+    }
+    .lr1, .lr2{
+        text-decoration: none;
+        padding: 0px;
+        margin-top: 0px;
+        display: block;
+        width: 50px;
+        height: 30px;
+        float: left;
+        text-align: center;
+        line-height: 30px;
+    }
+</style>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<body onload="save()">
+<div id="top">
+    <div id="l_r">
+        <a href="/register" class="lr1">注册</a><a href="/login" class="lr1"  target="_parent">登录</a>
+        <a class="lr2" id="userInfo" style="display: none"></a><a href="/returnLogin" class="lr2" style="display: none">退出</a>
+    </div>
+</div>
+<script type="text/javascript">
+    function save()
+    {
+        var url = 'http://localhost:8080/session';
+        $.ajax(url, {
+            dataType: 'text',
+            crossDomain: true,
+            success: function(data) {
+                if(data == null || data == ""){
+                    return;
+                }
+                $("#userInfo").text(data);
+                var lr1s = $(".lr1");
+                for(var i = 0; i<lr1s.length; i++){
+                    lr1s[i].style.display = "none";
+                }
+                var lr2s = $(".lr2");
+                for(var i = 0; i<lr2s.length; i++){
+                    lr2s[i].style.display = "block";
+                }
+            },
+            error : function() {
+                alert('error...');
+            }
+        })}
+</script>
+</body>
+</html>

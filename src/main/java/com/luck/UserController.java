@@ -63,10 +63,24 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping("/loginCheck")
+    public String loginCheck(Users users, HttpSession httpSession){
+        Users users1 = userManager.checkUser(users.getName(), users.getAge());
+        if (users1 != null) {
+            //success
+            System.out.println("ok");
+            httpSession.setAttribute("user", users1.getName());
+        } else {
+            // fail
+            System.out.println("no");
+        }
+        return "redirect:/index";
+    }
+
     @RequestMapping("/add")
     public String addUser(Users users){
         userManager.insert(users);
-        return "redirect:/index";
+        return "redirect:/bottom";
     }
 
     @RequestMapping("/del/")

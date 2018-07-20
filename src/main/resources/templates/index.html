@@ -2,83 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <style type="text/css">
-        body{
-            margin: 0px;
-            padding: 0px;
-            background-color: lightslategrey;
-        }
-        #box{
-            width: 100%;
-            height: 100%;
-        }
-        #top{
-            width: 100%;
-            height: 30px;
-            background-color: bisque;
-        }
-        #l_r{
-            width: 100px;
-            height: 30px;
-            right: 0px;
-            position: fixed;
-        }
-        .lr{
-            text-decoration: none;
-            padding: 0px;
-            display: block;
-            width: 50px;
-            height: 30px;
-            float: left;
-            text-align: center;
-            line-height: 30px;
-        }
-        #main{
-            width: 50%;
-            height: 800px;
-            margin: 0px auto;
-        }
-        #main_top{margin-top: 50px;
-            width: 100%;
-            height: 100px;
-        }
-        #main_bottom{
-            /*background-color: red;*/
-        }
-        .blogClass{
-            width: 90%;
-            height: 70px;
-            background-color: aliceblue;
-            border-bottom: 1px solid #000;
-        }
-    </style>
+    <title>Title</title>
 </head>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    iframe{
+        display: block;
+        padding: 0px;
+        margin: 0px;
+    }
+</style>
 <body>
-<div id="box">
-    <div id="top">
-        <div id="l_r">
-            <a href="/register" class="lr">注册</a>
-        </div>
-    </div>
-    <div id="main">
-        <div id="main_top">
-            <span style="color: darkgreen; font-size: 20px">记录生活,记录美!!!</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;<a href="/addBlog">写博客</a></div>
-        <div id="main_bottom">
-            <#list list as player>
-                <div id="${player.blogId}" class="blogClass">
-                    <br>
-                    <a href="" style="text-decoration: none">
-                        <span style="font-weight: bold;color: black;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;
-                        ${player.blogTitle}</span>
-                    </a><br>
-                    <span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        ${player.blogDescription}</span><br>
-                </div>
-            </#list>
-        </div>
-    </div>
-</div>
+    <iframe src="/top" width="100%" height="30px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    <iframe src="/bottom" width="100%" height="1000px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 </body>
 </html>

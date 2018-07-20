@@ -35,4 +35,9 @@ public class UserService implements UserManager {
     public List<Users> getUserList(Users users) {
         return usersMapper.getUsers(users);
     }
+
+    @Override
+    public Users checkUser(String name, int age) {
+        return usersMapper.checkUser(name, age);
+    }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调皮</title>
+</head>
+<style type="text/css">
+    div{
+        width: 50%;
+        height: 700px;
+        display: block;
+        margin: 0px auto;
+    }
+</style>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript">
+    var num = 1;
+    function save()
+    {
+        num = num + 1;
+        var url = 'http://localhost:8080/hello';
+        $.ajax(url, {
+            data:{"num":num},
+            dataType: 'text',
+            crossDomain: true,
+            success: function(data) {
+                alert(data);
+            },
+            error : function() {
+                alert('error...');
+            }
+        })}
+    function ok() {
+        alert("明天ling！哈哈")
+    }
+</script>
+<body>
+
+<div>
+    <button type="button" onclick="ok()">同意</button>
+    <button type="button" onclick="save()">取消</button>
+</div>
+
+</body>
+</html>

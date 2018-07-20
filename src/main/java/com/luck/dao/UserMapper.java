@@ -2,6 +2,7 @@ package com.luck.dao;
 
 import com.luck.pojo.Users;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface UserMapper {
     int updateByPrimaryKey(Users record);
 
     List<Users> getUsers(Users users);
+
+    Users checkUser(@Param("name") String name, @Param("age") int age);
 }
