@@ -9,12 +9,6 @@
             padding: 0px;
             background-color: lightslategrey;
         }
-        #box{
-            margin: 0px;
-            padding: 0px;
-            width: 100%;
-            height: 100%;
-        }
         #main{
             width: 50%;
             height: 800px;
@@ -24,8 +18,11 @@
             width: 100%;
             height: 100px;
         }
-        #main_bottom{
+        #main_middle{
             /*background-color: red;*/
+        }
+        #main_bottom{
+
         }
         .blogClass{
             width: 90%;
@@ -36,24 +33,27 @@
     </style>
 </head>
 <body>
-<div id="box">
-    <div id="main">
-        <div id="main_top">
-            <span style="color: darkgreen; font-size: 20px">记录生活,记录美!!!</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;<a href="/addBlog">写博客</a></div>
-        <div id="main_bottom">
-            <#list list as player>
-                <div id="${player.blogId}" class="blogClass">
-                    <br>
-                    <a href="" style="text-decoration: none">
-                        <span style="font-weight: bold;color: black;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;
-                        ${player.blogTitle}</span>
-                    </a><br>
-                    <span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        ${player.blogDescription}</span><br>
-                </div>
-            </#list>
-        </div>
+<div id="main">
+    <div id="main_top">
+        <span style="color: darkgreen; font-size: 20px">记录生活,记录美!!!</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/addBlog">写博客</a></div>
+    <div id="main_middle">
+        <#list list as player>
+            <div id="${player.blogId}" class="blogClass">
+                <br>
+                <a href="" style="text-decoration: none">
+                    <span style="font-weight: bold;color: black;font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${player.blogTitle}</span>
+                </a><br>
+                <span style="font-size: 14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ${player.blogDescription}</span><br>
+            </div>
+        </#list>
+    </div>
+    <div id="main_bottom">
+        <a href="/aliPay/setMoney">
+            <img src="http://news.taoming.com/uploads/allimg/141020/6363_141020152251_1.png" width="50px" height="50px">
+        </a>
     </div>
 </div>
 </body>
