@@ -2,19 +2,14 @@ package com.luck;
 
 import com.luck.api.BlogManager;
 import com.luck.api.UserManager;
-import com.luck.dao.UserMapper;
 import com.luck.pojo.Blog;
-import com.luck.pojo.Users;
+import com.luck.redis.StringRedis;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -30,6 +25,8 @@ public class HelloController {
     private UserManager userManager;
     @Autowired
     private BlogManager blogManager;
+    @Autowired
+    private StringRedis stringRedis;
 
     @RequestMapping("/hello")
     @ResponseBody
@@ -101,6 +98,15 @@ public class HelloController {
             return null;
         }
         return user.toString();
+    }
+
+    @RequestMapping("/redis")
+    @ResponseBody
+    public String redisTest() {
+        stringRedis.add("redis", "hello redis ..");
+        String s = stringRedis.get("redis");
+        System.out.println(s);
+        return s;
     }
 
 }
