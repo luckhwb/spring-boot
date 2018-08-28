@@ -4,22 +4,22 @@ spring:
     view:
       prefix: /templates/
       suffix: .html
-  # freemarker
-  freemarker:
-    cache: false
-    request-context-attribute: request
-    template-loader-path: classpath:/templates
-    prefix:
-    suffix: .html
-  # thymeleaf
-  thymeleaf:
-    prefix:
-    suffix: .html
-    mode: HTML5
-    encoding: UTF-8
-    servlet:
-      content-type: text/html
-    cache: false
+    # freemarker
+    freemarker:
+      cache: false
+      request-context-attribute: request
+      template-loader-path: classpath:/templates
+      prefix:
+      suffix: .html
+    # thymeleaf
+    thymeleaf:
+      prefix:
+      suffix: .html
+      mode: HTML5
+      encoding: UTF-8
+      servlet:
+        content-type: text/html
+      cache: false
   http:
     encoding:
       force: true
