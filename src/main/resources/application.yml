@@ -4,14 +4,14 @@ spring:
     view:
       prefix: /templates/
       suffix: .html
-    # freemarker
-    freemarker:
-      cache: false
-      request-context-attribute: request
-      template-loader-path: classpath:/templates
-      prefix:
-      suffix: .html
-    # thymeleaf
+  # freemarker
+  freemarker:
+    cache: false
+    request-context-attribute: request
+    template-loader-path: classpath:/templates
+    prefix:
+    suffix: .html
+    # thymeleaf  问题两者不能共存，将上面freemarker配置后退一格才可使用
     thymeleaf:
       prefix:
       suffix: .html
@@ -39,6 +39,7 @@ spring:
         host: localhost
         port: 6379
         database: 0
+
 # mybatis配置
 mybatis:
   mapper-locations: classpath*:sqlmap/*Mapper.xml

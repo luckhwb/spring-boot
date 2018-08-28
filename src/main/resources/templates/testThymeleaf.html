@@ -5,7 +5,16 @@
     <title>测试thymeleaf：</title>
 </head>
 <body>
-thymeleaf:<p th:text="${hello}"></p><br>
+thymeleaf的值:<p th:text="${hello}"></p><br>
+freemarker集合：
+<#list list as player>
+    <div class="blogClass">
+        <br>
+        <a href="" style="text-decoration: none">
+            <span>${player}</span>
+        </a>
+    </div>
+</#list>
 
 </body>
 </html>
